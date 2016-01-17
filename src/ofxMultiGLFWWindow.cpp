@@ -5,6 +5,7 @@
 #include "ofGLProgrammableRenderer.h"
 #include "ofAppRunner.h"
 #include "Poco/URI.h"
+#include "enumerations.h"
 
 #ifdef TARGET_LINUX
 	#include "ofIcon.h"
@@ -326,7 +327,7 @@ void ofxMultiGLFWWindow::runAppViaInfiniteLoop(ofBaseApp * appPtr){
 	ofAppPtr = appPtr;
 	glfwMakeContextCurrent(windowP);
 	ofNotifySetup();
-	while(!glfwWindowShouldClose(windowP)){
+	while(!glfwWindowShouldClose(windows.at(MAIN_WINDOW))){
         ofNotifyUpdate();
         display();
 	}
@@ -378,7 +379,7 @@ void ofxMultiGLFWWindow::display(void){
         if( bEnableSetupScreen )ofSetupScreen();
 
 
-        if (i==0)
+        if (i==MAIN_WINDOW)
             ofNotifyDraw();
         else
             ofAppPtr->draw();
