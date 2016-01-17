@@ -327,7 +327,7 @@ void ofxMultiGLFWWindow::runAppViaInfiniteLoop(ofBaseApp * appPtr){
 	ofAppPtr = appPtr;
 	glfwMakeContextCurrent(windowP);
 	ofNotifySetup();
-	while(!glfwWindowShouldClose(windowP)){
+	while(!glfwWindowShouldClose(windows.at(MAIN_WINDOW))){
         ofNotifyUpdate();
         display();
 	}
