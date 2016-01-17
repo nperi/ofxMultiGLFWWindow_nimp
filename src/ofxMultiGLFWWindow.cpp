@@ -5,6 +5,7 @@
 #include "ofGLProgrammableRenderer.h"
 #include "ofAppRunner.h"
 #include "Poco/URI.h"
+#include "enumerations.h"
 
 #ifdef TARGET_LINUX
 	#include "ofIcon.h"
@@ -378,7 +379,7 @@ void ofxMultiGLFWWindow::display(void){
         if( bEnableSetupScreen )ofSetupScreen();
 
 
-        if (i==0)
+        if (i==MAIN_WINDOW)
             ofNotifyDraw();
         else
             ofAppPtr->draw();
